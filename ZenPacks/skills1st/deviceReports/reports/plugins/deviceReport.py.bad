@@ -1,0 +1,86 @@
+import Globals
+from Globals import InitializeClass
+from Products.ZenReports import Utils
+
+import re
+import logging
+log = logging.getLogger("zen.Reports")
+
+
+#    self.titleOrId=device.titleOrId()
+#    self.collected = device.getSnmpLastCollectionString()
+#    self.deviceLink = device.getDeviceLink()
+
+#    def titleOrId(self): return self.t 
+#    def kernel(self): return self.kernel 
+
+class RDevice:
+  security = ClassSecurityInfo()
+  security.setDefaultAccess('allow')
+
+  def __init__(self, device):
+    self.titleOrId=device.titleOrId()
+    self.kernel = device.getOSProductName().replace('Linux ','')
+    self.collected = device.getSnmpLastCollectionString()
+    self.deviceLink = device.getDeviceLink()
+
+InitializeClass(RDevice)
+
+
+# The class name must match the filename.
+
+class deviceReport:
+  """
+  Device report
+  """
+
+  def filteredDevices(self, dmd, args):
+    deviceInstance = args.get('deviceInstance', '') or '' 
+    deviceClass = args.get('deviceClass', '/') or '/' 
+    deviceGroup = args.get('deviceGroup', '/') or '/' 
+    deviceSystem = args.get('deviceSystem', '/') or '/' 
+    deviceLocation = args.get('deviceLocation', '/') or '/' 
+
+    if self.deviceInstance:
+      deviceList = []
+      device = dmd.Devices.findDevice(self.deviceInstance)
+      if device:
+        deviceList = [device]
+    else:
+      for d in dmd.Devices.getOrganizer(deviceClass).getSubDevices(): 
+        if not d.monitorDevice(): continue 
+        dGroups = d.getDeviceGroupNames();
+        if len(dGroups) == 0: dGroups.append('/')
+        groupMatched = False
+        for i in dGroups:
+          if re.match(deviceGroup,i): 
+            groupMatched = True
+            break
+        dSystems = d.getSystemNames();
+        if len(dSystems) == 0: dSystems.append('/')
+        systemMatched = False
+        for i in dSystems:
+          if re.match(deviceSystem,i):
+            systemMatched = True
+            break
+        locationMatched = False
+        dLocation = d.getLocationName();
+        if len(dLocation) == 0: dLocation='/'
+        if re.match(deviceLocation,dLocation): locationMatched = True
+        if groupMatched and systemMatched and locationMatched: 
+          deviceList.append(d)
+    return deviceList
+
+  def run(self, dmd, args):
+    """
+    Generate the report using custom filter
+    """
+
+    report = []
+#    log.info('invoking deviceReport report')
+    for device in self.filteredDevices(dmd, args):
+      report.append(Utils.Record(
+        deviceInstance=device.titleOrId(),
+        deviceIP=device.manageIp,
+        ))
+      return report

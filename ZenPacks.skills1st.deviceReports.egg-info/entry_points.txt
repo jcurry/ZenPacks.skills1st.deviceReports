@@ -1,0 +1,3 @@
+[zenoss.zenpacks]
+ZenPacks.skills1st.deviceReports = ZenPacks.skills1st.deviceReports
+
