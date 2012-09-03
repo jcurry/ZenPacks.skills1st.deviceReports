@@ -1,0 +1,276 @@
+<!--
+###########################################################################
+#
+# This program is part of Zenoss Core, an open source monitoring platform.
+# Copyright (C) 2009, Zenoss Inc.
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 2 as published by
+# the Free Software Foundation.
+#
+# For complete information please visit: http://www.zenoss.com/oss/
+#
+###########################################################################
+-->
+
+<html>
+    <head>
+        <title>
+            Zenoss:
+            Reports
+        </title>
+        <link rel="icon" href="/zport/dmd/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/zport/dmd/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/++resource++extjs/resources/css/ext-all.css" />
+        <link rel="stylesheet" type="text/css" href="/++resource++extjs/treegrid/treegrid.css" />
+        <link rel="stylesheet" type="text/css" href="/++resource++zenui/js/livegrid/resources/css/ext-ux-livegrid.css" />
+        <link rel="stylesheet" type="text/css" href="/++resource++zenui/css/xtheme-zenoss.css" />
+        <link rel="stylesheet" type="text/css" href="/++resource++zenui/css/zenoss.css" />
+        <link rel="stylesheet" type="text/css" href="/++resource++zenui/css/zenui3.css" />
+        
+<script type="text/javascript">
+    function _global_permissions(){
+        return {"modify cookie crumblers": true, "add ram cache managers": true, "reply to item": true, "zproperties edit": true, "maintenance windows view": true, "maintenance windows edit": true, "define commands edit": true, "add folders": true, "set own password": true, "add portal content": true, "edit user groups": true, "review portal content": true, "manage relations": true, "change cache managers": true, "add ofolders": true, "create transient objects": true, "list undoable changes": true, "webdav unlock items": true, "view modifications": true, "manage portal": true, "change bindings": true, "delete device": true, "access transient objects": true, "add dmd objects": true, "manage site": true, "gensummary": true, "add restructuredtext documents": true, "zencommon": true, "manage transient object container": true, "zproperties view": true, "request review": true, "mail forgotten password": true, "change cache settings": true, "add page templates": true, "change session data manager": true, "change external methods": true, "managableindex: manage": true, "administrators view": true, "add external methods": true, "define commands view": true, "change device production state": true, "add site roots": true, "add zentablemanager": true, "set own properties": true, "add plugin registrys": true, "webdav lock items": true, "add mysqleventmanagers": true, "search zcatalog": true, "access contents information": true, "add browser id manager": true, "change dtml documents": true, "use mailhost services": true, "change dtml methods": true, "view history": true, "add content type registrys": true, "ftp access": true, "add vocabularies": true, "edit local templates": true, "manage groups": true, "manage webdav locks": true, "add toonerelationships": true, "add user folders": true, "add cmf caching policy managers": true, "add temporary folder": true, "add btreefolder2s": true, "administrators edit": true, "admin device": true, "change python scripts": true, "change images and files": true, "change database methods": true, "add python scripts": true, "change configuration": true, "view": true, "access inactive portal content": true, "undo changes": true, "run commands": true, "change admin objects": true, "webdav access": true, "view management screens": true, "add session data manager": true, "add mailhost objects": true, "add cmf core tools": true, "add database methods": true, "change network": true, "import/export objects": true, "manage vocabulary": true, "access arbitrary user session data": true, "open/close database connections": true, "delete objects": true, "change settings": true, "change page templates": true, "change device": true, "add portal member": true, "change browser id manager": true, "manage zcatalog entries": true, "send events": true, "manage eventmanager": true, "access session data": true, "copy or move": true, "add filesystem directory views": true, "add cookie crumblers": true, "change user folder": true, "add virtual host monsters": true, "define permissions": true, "change event views": true, "add tomanycontrelationships": true, "add documents, images, and files": true, "manage access rules": true, "change alerting rules": true, "query vocabulary": true, "modify portal content": true, "edit restructuredtext": true, "manage dmd": true, "add generic setup tools": true, "zenupdate": true, "add pluggable index": true, "add zcatalogs": true, "add portal folders": true, "manage device status": true, "change local roles": true, "add transient object container": true, "manage five local sites": true, "add tomanyrelationships": true, "list portal members": true, "edit users": true, "manage users": true, "change permissions": true, "use database methods": true, "add accelerated http cache managers": true, "manage zcatalogindex entries": true, "search for principals": true, "log to the event log": true, "manage events": true, "ofolder: reorder": true, "log site errors": true, "list folder contents": true, "add relationship managers": true, "change proxy roles": true, "manage properties": true, "add zodb mount points": true, "manage device": true};
+    }
+</script>
+        
+        <script type="text/javascript" src="/++resource++extjs/adapters/ext/ext-base.js"></script>
+
+
+<script type="text/javascript">
+
+         (function() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf("firefox/3.6") > -1) {
+                Ext.toArray = function(a, i, j, res) {
+                    res = [];
+                    Ext.each(a, function(v) { res.push(v); });
+                    return res.slice(i || 0, j || res.length);
+                }
+            }
+        })();
+        
+</script>
+
+<script type="text/javascript" src="/++resource++extjs/ext-all.js"></script>
+
+
+<script type="text/javascript" src="/++resource++zenui/js/livegrid/livegrid-all.js"></script>
+
+<script type="text/javascript" src="/++resource++example/js/myFooterMenu.js"></script>
+
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGridSorter.js"></script>
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGridColumnResizer.js"></script>
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGridNodeUI.js"></script>
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGridLoader.js"></script>
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGridColumns.js"></script>
+<script type="text/javascript" src="/++resource++extjs/fileuploadfield/FileUploadField.js"></script>
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGridLoader.js"></script>
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGridColumns.js"></script>
+<script type="text/javascript" src="/++resource++extjs/treegrid/TreeGrid.js"></script>
+<script type="text/javascript" src="extdirect.js"></script>
+
+<script type="text/javascript" src="zenoss-all.js?v=3.1.0"></script>
+
+<script type="text/javascript" src="i18n.js"></script>
+
+<script type="text/javascript" src="/++resource++example/js/run_my_predefined_command.js"></script>
+
+<script type="text/javascript" src="/++resource++zenHttpComponent/httpcomponent.js"></script>
+
+<script type="text/javascript" src="/++resource++zenaws/ZenAWS.js"></script>
+
+<script type="text/javascript" src="/++resource++deviceadvdetail/deviceAdvDetail.js"></script>
+
+<script type="text/javascript" src="/++resource++UserRoles/js/update_organizer_devices.js"></script>
+
+<script type="text/javascript" src="/++resource++example/js/add_example_device_option.js"></script>
+
+<script type="text/javascript" src="/++resource++virtual_machines/js/VirtualMachine.js"></script>
+
+        <script></script>
+        
+        
+
+    </head>
+
+    <body>
+        <div id="header">
+            <div class="bg">
+                <div class="bg-leftcap">
+                    <div class="bg-tile">
+                        <div class="bg-logo"></div>
+                        <div id="primarynav">
+                            <ul><li class="nav-item-inactive">
+<div class="sd-left">
+    <div class="sd-right">
+        <a href="/zport/dmd/Dashboard" target="_self">Dashboard</a>
+   </div>
+</div>
+</li>
+
+<li class="nav-item-inactive">
+<div class="sd-left">
+    <div class="sd-right">
+        <a href="/zport/dmd/Events/evconsole" target="_self">Events</a>
+   </div>
+</div>
+</li>
+
+<li class="nav-item-inactive">
+<div class="sd-left">
+    <div class="sd-right">
+        <a href="/zport/dmd/itinfrastructure" target="_self">Infrastructure</a>
+   </div>
+</div>
+</li>
+
+<li class="nav-item-active">
+<div class="sd-left">
+    <div class="sd-right">
+        <a href="/zport/dmd/reports" target="_self">Reports</a>
+   </div>
+</div>
+</li>
+
+<li class="nav-item-inactive">
+<div class="sd-left">
+    <div class="sd-right">
+        <a href="/zport/dmd/editSettings" target="_self">Advanced</a>
+   </div>
+</div>
+</li>
+</ul>
+                            <div id="header-extra">
+                                <div id="searchbox-container"></div>
+                                <div id="saved-search-container"></div>
+                                <div id="user-link-container">
+                                    <a
+    href="/zport/dmd/ZenUsers/admin">
+                                    admin
+                                    </a>
+                                </div>
+                                <div id="sign-out-link">
+                                    <a href="/zport/dmd/logoutUser">sign out</a>
+                                </div>
+                                <div>
+                                    <div id="help-icon-container">
+                                        <span></span><!-- ie needs empty span tags in some versions -->
+                                        <a target="_blank"
+    alt="Help"
+    href="http://www.zenoss.com/help?version=3.1.0">&nbsp;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="secondarynav">
+                            <ul><li class="nav-item-active">
+<div class="sd-left">
+    <div class="sd-right">
+        <a href="/zport/dmd/Reports" target="_self">Basic</a>
+   </div>
+</div>
+</li>
+
+<li class="nav-item-inactive">
+<div class="sd-left">
+    <div class="sd-right">
+        <a href="http://www2.zenoss.com/no-zdi"
+           target="_blank">Advanced</a>
+   </div>
+</div>
+</li>
+</ul>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="center">
+            
+        </div>
+        <div id="footer">
+        </div>
+        <div id="footer_extra">
+        </div>
+
+
+
+<script type="text/javascript">
+Ext.onReady(function(){
+var viewport = new Ext.Viewport({
+    id: 'viewport',
+    layout: 'border',
+    cls: 'zenui3',
+    defaults: {
+        'border': false
+    },
+    items: [
+        new Ext.BoxComponent({
+            region: 'north',
+            el: 'header',
+            height: 75,
+            id: 'header_panel'
+        }),{
+            id: 'footer_panel',
+            region: 'south',
+            height: 30,
+            layout: 'fit',
+            el: 'footer',
+            items: [
+                new Ext.Toolbar({
+                    border: false,
+                    id: 'footer_bar',
+                    listeners: {
+                        render: function(bar){
+                            Ext.get('footer_extra').appendTo(bar.getEl());
+                        }
+                    }
+                })
+            ],
+            border: false
+        },{
+            id: 'center_panel',
+            region: 'center',
+            el: 'center',
+            layout: 'fit',
+            border: false,
+            defaults: {
+                'border': false
+            }
+        }
+    ]
+});
+});
+</script>
+
+
+<script src="/++resource++zenui/js/zenoss/Reports.js"></script>
+
+
+<!-- Make sure everything on the page gets laid out -->
+<script type="text/javascript">
+    Ext.onReady(function(){Ext.getCmp('viewport').doLayout()});
+</script>
+
+
+<!-- Use this slot to perform any post-layout steps. -->
+
+
+<!-- Load tooltips for this screen -->
+<script type="text/javascript" src="tooltips.js"></script>
+
+<!-- Fields required for history management -->
+<form id="history-form" class="x-hidden" action="">
+    <input type="hidden" id="x-history-field" />
+    <iframe id="x-history-frame"></iframe>
+</form>
+<script type="text/javascript">
+Ext.History.init(function(mgr){
+    Ext.History.selectByToken(mgr.getToken());
+});
+</script>
+</body>
+</html>

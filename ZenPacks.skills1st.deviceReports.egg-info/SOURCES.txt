@@ -13,6 +13,7 @@ ZenPacks.skills1st.deviceReports.egg-info/top_level.txt
 ZenPacks.skills1st.deviceReports.egg-info/zenpack_info
 ZenPacks/skills1st/__init__.py
 ZenPacks/skills1st/__init__.pyc
+ZenPacks/skills1st/deviceReports/LICENSE.txt
 ZenPacks/skills1st/deviceReports/ReportLoader.py
 ZenPacks/skills1st/deviceReports/__init__.py
 ZenPacks/skills1st/deviceReports/__init__.pyc

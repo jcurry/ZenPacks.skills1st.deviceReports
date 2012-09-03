@@ -3,9 +3,9 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.skills1st.deviceReports"
-VERSION = "1.0"
+VERSION = "2.0"
 AUTHOR = "Jane Curry"
-LICENSE = ""
+LICENSE = "GPLv2"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.skills1st']
 PACKAGES = ['ZenPacks', 'ZenPacks.skills1st', 'ZenPacks.skills1st.deviceReports']
 INSTALL_REQUIRES = []
