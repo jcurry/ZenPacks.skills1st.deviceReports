@@ -78,7 +78,7 @@ Screenshots
 .. _Latest Package for Python 2.6: https://github.com/downloads/jcurry/ZenPacks.skills1st.deviceReports/ZenPacks.skills1st.deviceReports-1.0-py2.6.egg
 .. _Latest Package for Python 2.7: https://github.com/downloads/jcurry/ZenPacks.skills1st.deviceReports/ZenPacks.skills1st.deviceReports-2.0-py2.7.egg
 
-.. |lotschy| image:: http://github.com/jcurry/ZenPacks.skills1st.deviceReports/raw/master/screenshots/lotschy.jpg
+.. |lotschy| image:: http://github.com/jcurry/ZenPacks.skills1st.deviceReports/raw/master/screenshots/oneDeviceReport.jpg
 
 
 Acknowledgements
