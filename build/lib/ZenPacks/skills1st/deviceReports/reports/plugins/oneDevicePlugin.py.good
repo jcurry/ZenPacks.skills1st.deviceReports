@@ -1,0 +1,44 @@
+# ZenReports.Utils contains some useful helpers for creating records to return.
+from Products.ZenReports import Utils
+from AccessControl import ClassSecurityInfo
+
+#class RDevice:
+#  security = ClassSecurityInfo()
+#  security.setDefaultAccess('allow')
+#
+#  def __init__(self, device):
+#    self.titleOrId=device.titleOrId()
+#    self.collected = device.getSnmpLastCollectionString()
+#    self.deviceLink = device.getDeviceLink()
+
+#    def titleOrId(self): return self.t 
+#    def kernel(self): return self.kernel 
+
+
+# The class name must patch the filename.
+class oneDevicePlugin:
+
+    # The run method will be executed when your report calls the plugin.
+    def run(self, dmd, args):
+        report = []
+#        devlist = args.get('device', '') or ''
+        device = args.get('device', '') or ''
+#        devlist=['lotschy.skills-1st.co.uk', 'zen31.class.example.org']
+        devlist=[device]
+        if devlist:
+#        for device in dmd.Devices.getSubDevicesGen():
+            for d in devlist:
+                device =  dmd.Devices.findDevice(d)
+                if device:
+                    report.append(Utils.Record(
+                        device=device.titleOrId(),
+                        ip=device.manageIp,
+                        hardware="%s %s" % (
+                            device.hw.getManufacturerName(),
+                            device.hw.getProductName()),
+                        software="%s %s" % (
+                            device.os.getManufacturerName(),
+                            device.os.getProductName()),
+                        ))
+
+        return report
