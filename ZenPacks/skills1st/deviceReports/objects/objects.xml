@@ -3,7 +3,4 @@
 <!-- ('', 'zport', 'dmd', 'Reports', 'Device Reports', 'oneDeviceReport') -->
 <object id='/zport/dmd/Reports/Device Reports/oneDeviceReport' module='Products.ZenModel.Report' class='Report'>
 </object>
-<!-- ('', 'zport', 'dmd', 'Reports', 'Example Reports', 'Example Report') -->
-<object id='/zport/dmd/Reports/Example Reports/Example Report' module='Products.ZenModel.Report' class='Report'>
-</object>
 </objects>
