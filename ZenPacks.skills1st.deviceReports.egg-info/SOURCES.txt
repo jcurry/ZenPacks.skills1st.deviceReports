@@ -16,34 +16,20 @@ ZenPacks/skills1st/__init__.pyc
 ZenPacks/skills1st/deviceReports/ReportLoader.py
 ZenPacks/skills1st/deviceReports/__init__.py
 ZenPacks/skills1st/deviceReports/__init__.pyc
-ZenPacks/skills1st/deviceReports/daemons/zenexample
-ZenPacks/skills1st/deviceReports/datasources/ExampleDataSource.py.example
 ZenPacks/skills1st/deviceReports/datasources/__init__.py
 ZenPacks/skills1st/deviceReports/lib/__init__.py
 ZenPacks/skills1st/deviceReports/libexec/placeholder.txt
-ZenPacks/skills1st/deviceReports/migrate/ExampleMigration.py
-ZenPacks/skills1st/deviceReports/migrate/ExampleMigration.pyc
 ZenPacks/skills1st/deviceReports/migrate/__init__.py
 ZenPacks/skills1st/deviceReports/modeler/__init__.py
 ZenPacks/skills1st/deviceReports/modeler/plugins/__init__.py
 ZenPacks/skills1st/deviceReports/modeler/plugins/community/__init__.py
-ZenPacks/skills1st/deviceReports/modeler/plugins/community/cmd/ExampleCMD.py.example
 ZenPacks/skills1st/deviceReports/modeler/plugins/community/cmd/__init__.py
-ZenPacks/skills1st/deviceReports/modeler/plugins/community/snmp/ExampleSNMP.py.example
 ZenPacks/skills1st/deviceReports/modeler/plugins/community/snmp/__init__.py
 ZenPacks/skills1st/deviceReports/objects/objects.xml
-ZenPacks/skills1st/deviceReports/reports/Device Reports/.oneDeviceReport.rpt.swp
-ZenPacks/skills1st/deviceReports/reports/Device Reports/deviceReport.rpt.bad
 ZenPacks/skills1st/deviceReports/reports/Device Reports/oneDeviceReport.rpt
-ZenPacks/skills1st/deviceReports/reports/Device Reports/oneDeviceReport.rpt.good
-ZenPacks/skills1st/deviceReports/reports/Example Reports/Example Report.rpt
 ZenPacks/skills1st/deviceReports/reports/plugins/.oneDevicePlugin.py.swp
-ZenPacks/skills1st/deviceReports/reports/plugins/deviceReport.py.bad
-ZenPacks/skills1st/deviceReports/reports/plugins/example_plugin.py
 ZenPacks/skills1st/deviceReports/reports/plugins/oneDevicePlugin.py
-ZenPacks/skills1st/deviceReports/reports/plugins/oneDevicePlugin.py.good
 ZenPacks/skills1st/deviceReports/reports/plugins/oneDevicePlugin.pyc
 ZenPacks/skills1st/deviceReports/reports/plugins/report-data
 ZenPacks/skills1st/deviceReports/skins/ZenPacks.skills1st.deviceReports/placeholder.txt
 ZenPacks/skills1st/deviceReports/tests/__init__.py
-ZenPacks/skills1st/deviceReports/tests/testExample.py
