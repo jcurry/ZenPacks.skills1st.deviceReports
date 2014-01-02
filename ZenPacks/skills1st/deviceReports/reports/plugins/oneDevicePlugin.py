@@ -1,35 +1,11 @@
 # ZenReports.Utils contains some useful helpers for creating records to return.
 from Products.ZenReports import Utils
-from AccessControl import ClassSecurityInfo
 from Products.ZenModel.DeviceOrganizer import DeviceOrganizer
 import Globals
 import time
 
-
-#class RDevice:
-#  security = ClassSecurityInfo()
-#  security.setDefaultAccess('allow')
-#
-#  def __init__(self, device):
-#    self.titleOrId=device.titleOrId()
-#    self.collected = device.getSnmpLastCollectionString()
-#    self.deviceLink = device.getDeviceLink()
-
-#    def titleOrId(self): return self.t 
-#    def kernel(self): return self.kernel 
-
-
-# The class name must patch the filename.
+# The class name must match the filename.
 class oneDevicePlugin:
-
-#    def getlocals(self,dmd, dev):
-    # Return a list of tuples (property,value) that are set locally on a device
-#        locals=[]
-#        loc=dev._propertyValues
-#        for i in loc:
-#            newentry=(i, loc[i])
-#            locals.append(newentry)
-#        return locals
 
     def testGroupMembership(self, dmd, dev):
     # Check whether a device is part of a Group
@@ -91,6 +67,29 @@ class oneDevicePlugin:
             for d in devlist:
                 dev =  dmd.Devices.findDevice(d)
                 if dev:
+                    # Check for local properties that have assword and asterisk them
+                    locals=dev._propertyValues.items()
+                    newlocals = []
+                    for k,v in locals:
+                        if k.find('assword') != -1:
+                            newlocals.append((k, '***'))
+                        else:
+                            newlocals.append((k,v))
+                    # Windows properties wont exist if Windows ZenPacks not installed
+                    #   so check for them explicitly
+                    try:
+                        WinUser = dev.zWinUser
+                    except:
+                        WinUser = 'Not a valid property'
+                    try:
+                        WinEventlog = dev.zWinEventlog
+                    except:
+                        WinEventlog = 'Not a valid property'
+                    try:
+                        WmiMonitorIgnore = dev.zWmiMonitorIgnore
+                    except:
+                        WmiMonitorIgnore = 'Not a valid property'
+
                     report.append(Utils.Record(
                         mydev=dev.titleOrId(),
                         devid=dev.id,
@@ -111,15 +110,16 @@ class oneDevicePlugin:
                         zSnmpMonitorIgnore = dev.zSnmpMonitorIgnore,
                         snmpLastCollection = dev.snmpLastCollection,
                         snmpindex = dev.snmpindex,
-                        zWinUser = dev.zWinUser,
-                        zWinEventlog = dev.zWinEventlog,
-                        zWmiMonitorIgnore = dev.zWmiMonitorIgnore,
+                        zWinUser = WinUser,
+                        zWinEventlog = WinEventlog,
+                        zWmiMonitorIgnore = WmiMonitorIgnore,
                         zCommandUsername = dev.zCommandUsername,
                         zCommandCommandTimeout = dev.zCommandCommandTimeout,
                         productionState=dev.productionState,
                         preMWProductionState=dev.preMWProductionState,
                         # Produces a list of tuples
-                        locals=dev._propertyValues.items(),
+                        #locals=dev._propertyValues.items(),
+                        locals=newlocals,
                         collectorPlugins=dev.zCollectorPlugins,
                         deviceTemplates=dev.zDeviceTemplates,
                         deviceClass = dev.getDeviceClassPath(),

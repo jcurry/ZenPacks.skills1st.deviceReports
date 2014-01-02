@@ -6,8 +6,17 @@
     mydev python:sts(tableName, 'mydev', '');
     tableState python:tm.getTableState(tableName, sortedSence='desc', sortedHeader='outputP');
     objects python:here.ReportServer.plugin('oneDevicePlugin', tableState);
+    objects python: (hasattr(request, 'doExport') and list(objects)) or objects;
     batch python:here.ZenTableManager.getBatch(tableName,objects,sortedHeader='mydev', sortedSence='asc');
-    exportFields python:['mydev', 'ip', 'hardware', 'software'];
+    exportFields python:['mydev', 'devid', 'devtitle', 'ip', 
+                        'hardware', 'software', 'zPingMonitorIgnore', 'productionState', 'preMWProductionState',
+                        'zWinUser', 'zWinEventlog', 'zWmiMonitorIgnore', 'zCommandUsername', 'zCommandCommandTimeout',
+                        'deviceClass', 'groups', 'systems', 'location',
+                        'zSnmpVer', 'zSnmpCommunity', 'zSnmpCommunities',
+                        'zSnmpTimeout', 'zSnmpTries', 'zSnmpMonitorIgnore', 'snmpLastCollection', 'snmpindex',
+                        'collectorPlugins', 'deviceTemplates',
+                        'locals', 'mwlist' 
+                        ];
     ">
 
 <!-- Make the report exportable to CSV -->
