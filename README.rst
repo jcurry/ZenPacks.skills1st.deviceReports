@@ -67,6 +67,10 @@ Change History
    * Initial Release for Zenoss 3.x
 * 2.0
    * Tested with Zenoss Core 4.2
+* 2.2
+   * Any passwords now obfuscated
+   * Export to CSV exports all fields
+   * Checks whether Windows zProperties exist
 
 Screenshots
 ===========
