@@ -80,7 +80,7 @@ Screenshots
 .. External References Below. Nothing Below This Line Should Be Rendered
 
 .. _Latest Package for Python 2.6: https://github.com/downloads/jcurry/ZenPacks.skills1st.deviceReports/ZenPacks.skills1st.deviceReports-1.1-py2.6.egg
-.. _Latest Package for Python 2.7: https://github.com/downloads/jcurry/ZenPacks.skills1st.deviceReports/ZenPacks.skills1st.deviceReports-2.1-py2.7.egg
+.. _Older Package for Python 2.7: https://github.com/downloads/jcurry/ZenPacks.skills1st.deviceReports/ZenPacks.skills1st.deviceReports-2.1-py2.7.egg
 .. _Latest Package for Python 2.7: http://wiki.zenoss.org/download/zenpacks/ZenPacks.skills1st.deviceReports/2.2/ZenPacks.skills1st.deviceReports-2.2.egg
 
 .. |lotschy| image:: http://github.com/jcurry/ZenPacks.skills1st.deviceReports/raw/master/screenshots/oneDeviceReport.jpg
