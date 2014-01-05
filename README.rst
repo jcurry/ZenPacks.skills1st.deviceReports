@@ -35,6 +35,7 @@ Download the appropriate package for your Zenoss version from the list
 below.
 
 * Zenoss 3.0+ `Latest Package for Python 2.6`_
+* Zenoss 4.0+ `Older Package for Python 2.7`_
 * Zenoss 4.0+ `Latest Package for Python 2.7`_
 
 ZenPack installation
